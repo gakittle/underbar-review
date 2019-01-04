@@ -109,7 +109,13 @@
     var uniqs = [];
 
     if (isSorted) {
-      
+      var results = [];
+      _.each(array, function(item) {
+        if (!_.contains(results, iterator(item))) {
+          results.push(iterator(item));
+          uniqs.push(item);
+        }
+      });
     } else {
       _.each(array, function(item) {
         if (!_.contains(uniqs, item)) {
