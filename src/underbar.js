@@ -106,6 +106,19 @@
 
   // Produce a duplicate-free version of the array.
   _.uniq = function(array, isSorted, iterator) {
+    var uniqs = [];
+
+    if (isSorted) {
+      
+    } else {
+      _.each(array, function(item) {
+        if (!_.contains(uniqs, item)) {
+          uniqs.push(item);
+        }
+      });
+    }
+
+    return uniqs;
   };
 
 
